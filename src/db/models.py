@@ -24,7 +24,7 @@ from typing import Optional
 
 def _utcnow() -> datetime:
     """Single source of truth for UTC timestamps. Replaces deprecated datetime.utcnow."""
-    return datetime.now(timezone.utc)
+    return datetime.now(timezone.utc).replace(tzinfo=None)
 
 
 class Base(DeclarativeBase):
